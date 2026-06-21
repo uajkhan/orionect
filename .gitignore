@@ -1,0 +1,7 @@
+.claude/
+.claude/
+handoff/
+Orionect-handoff.zip
+*.zip
+.DS_Store
+Thumbs.db

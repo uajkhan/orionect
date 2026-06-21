@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en" data-motion="on" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Orionect — Web design studio</title>
+<meta name="description" content="Orionect is a web design studio building fast, beautiful, conversion-minded websites for businesses." />
+<!-- Prevent dark-mode flash -->
+<script>(function(){var t=localStorage.getItem('orionect-theme');if(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)t='dark';if(t)document.documentElement.setAttribute('data-theme',t);else document.documentElement.setAttribute('data-theme','light');})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Instrument+Serif:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header" id="header">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Orionect home">
+      <span class="mark"></span>
+      Orionect
+    </a>
+    <nav class="nav">
+      <ul class="nav-links">
+        <li><a href="#work">Work</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#approach">Approach</a></li>
+        <li><a href="#process">Process</a></li>
+      </ul>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="5"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
+      <a class="btn" href="#contact"><span class="dot"></span>Start a project</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu"><span></span></button>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ MOBILE MENU ============ -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mclose" id="menuClose" aria-label="Close menu">✕</button>
+  <a href="#work">Work</a>
+  <a href="#services">Services</a>
+  <a href="#approach">Approach</a>
+  <a href="#process">Process</a>
+  <a href="#contact">Start a project</a>
+</div>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero wrap">
+    <!-- bg parallax rings (move at different depths, furthest back) -->
+    <div class="hero-bg-ring hero-bg-ring--1" aria-hidden="true"></div>
+    <div class="hero-bg-ring hero-bg-ring--2" aria-hidden="true"></div>
+    <div class="hero-status reveal">
+      <span class="pulse"></span>
+      Available for new projects — Summer 2026
+    </div>
+    <h1 class="reveal">
+      <span class="hl">We build</span>
+      <span class="hl">websites that</span>
+      <span class="hl"><em class="serif">mean business.</em></span>
+    </h1>
+    <div class="hero-foot">
+      <p class="hero-lede reveal" style="--d:.2s">
+        Orionect is a small, senior studio crafting fast, beautiful,
+        conversion-minded websites — strategy, design, build, and everything between.
+      </p>
+      <div class="hero-cta reveal" style="--d:.32s">
+        <a class="btn" href="#contact"><span class="dot"></span>Start a project</a>
+        <a class="btn ghost" href="#work">See our work</a>
+      </div>
+    </div>
+    <div class="hero-badge" aria-hidden="true">
+      <svg viewBox="0 0 200 200" fill="none">
+        <circle cx="100" cy="100" r="74" stroke="currentColor" stroke-width="1.5" opacity="0.85" />
+        <g class="badge-orbit"><circle cx="100" cy="26" r="12" fill="var(--accent)" /></g>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ============ MARQUEE ============ -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track">
+      <span>Web Design</span><span>Development</span><span>Brand &amp; Identity</span><span>E-commerce</span><span>SEO &amp; Performance</span><span>Care &amp; Growth</span>
+    </div>
+    <div class="marquee__track" aria-hidden="true">
+      <span>Web Design</span><span>Development</span><span>Brand &amp; Identity</span><span>E-commerce</span><span>SEO &amp; Performance</span><span>Care &amp; Growth</span>
+    </div>
+  </div>
+
+  <!-- ============ SELECTED WORK ============ -->
+  <section class="section wrap" id="work">
+    <div class="section-head">
+      <h2 class="reveal">Selected<br /><span class="serif">work</span></h2>
+      <span class="count reveal" style="--d:.1s">(06) — 2023–2026</span>
+    </div>
+    <div class="work-grid">
+
+      <a class="work-card reveal" href="#contact" style="--tint:oklch(0.895 0.03 58);--glyph:oklch(0.42 0.06 58 / 0.38)">
+        <div class="work-thumb">
+          <div class="ph-art"></div>
+          <div class="ph-glyph">NW</div>
+          <span class="ph-label">// drop case-study shot</span>
+          <span class="reveal-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 19 19 5M9 5h10v10"/></svg></span>
+        </div>
+        <div class="work-meta">
+          <h3>Northwind Coffee</h3>
+          <div class="work-tags"><span>E-commerce</span><span>Brand</span></div>
+        </div>
+        <span class="work-year">'25 — Shopify</span>
+      </a>
+
+      <a class="work-card reveal offset" href="#contact" style="--d:.1s;--tint:oklch(0.86 0.045 42);--glyph:oklch(0.46 0.08 42 / 0.4)">
+        <div class="work-thumb">
+          <div class="ph-art"></div>
+          <div class="ph-glyph">AL</div>
+          <span class="ph-label">// drop case-study shot</span>
+          <span class="reveal-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 19 19 5M9 5h10v10"/></svg></span>
+        </div>
+        <div class="work-meta">
+          <h3>Atlas Logistics</h3>
+          <div class="work-tags"><span>Corporate</span><span>Web App</span></div>
+        </div>
+        <span class="work-year">'25 — Next.js</span>
+      </a>
+
+      <a class="work-card reveal" href="#contact" style="--tint:oklch(0.915 0.022 95);--glyph:oklch(0.44 0.05 95 / 0.36)">
+        <div class="work-thumb">
+          <div class="ph-art"></div>
+          <div class="ph-glyph">MV</div>
+          <span class="ph-label">// drop case-study shot</span>
+          <span class="reveal-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 19 19 5M9 5h10v10"/></svg></span>
+        </div>
+        <div class="work-meta">
+          <h3>Maison Verde</h3>
+          <div class="work-tags"><span>Hospitality</span><span>Booking</span></div>
+        </div>
+        <span class="work-year">'24 — Webflow</span>
+      </a>
+
+      <a class="work-card reveal offset" href="#contact" style="--d:.1s;--tint:oklch(0.83 0.05 38);--glyph:oklch(0.45 0.09 38 / 0.42)">
+        <div class="work-thumb">
+          <div class="ph-art"></div>
+          <div class="ph-glyph">PF</div>
+          <span class="ph-label">// drop case-study shot</span>
+          <span class="reveal-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 19 19 5M9 5h10v10"/></svg></span>
+        </div>
+        <div class="work-meta">
+          <h3>Pulse Fitness</h3>
+          <div class="work-tags"><span>Membership</span><span>Booking</span></div>
+        </div>
+        <span class="work-year">'24 — Webflow</span>
+      </a>
+
+      <a class="work-card reveal" href="#contact" style="--tint:oklch(0.885 0.03 72);--glyph:oklch(0.43 0.06 72 / 0.38)">
+        <div class="work-thumb">
+          <div class="ph-art"></div>
+          <div class="ph-glyph">LG</div>
+          <span class="ph-label">// drop case-study shot</span>
+          <span class="reveal-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 19 19 5M9 5h10v10"/></svg></span>
+        </div>
+        <div class="work-meta">
+          <h3>Ledgerly</h3>
+          <div class="work-tags"><span>Fintech</span><span>SaaS</span></div>
+        </div>
+        <span class="work-year">'26 — Next.js</span>
+      </a>
+
+      <a class="work-card reveal offset" href="#contact" style="--d:.1s;--tint:oklch(0.92 0.028 55);--glyph:oklch(0.44 0.05 55 / 0.36)">
+        <div class="work-thumb">
+          <div class="ph-art"></div>
+          <div class="ph-glyph">BC</div>
+          <span class="ph-label">// drop case-study shot</span>
+          <span class="reveal-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 19 19 5M9 5h10v10"/></svg></span>
+        </div>
+        <div class="work-meta">
+          <h3>Bloom &amp; Co.</h3>
+          <div class="work-tags"><span>Retail</span><span>E-commerce</span></div>
+        </div>
+        <span class="work-year">'23 — Shopify</span>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ============ SERVICES ============ -->
+  <section class="section wrap" id="services">
+    <div class="section-head">
+      <h2 class="reveal">What we<br /><span class="serif">do</span></h2>
+      <p class="count reveal" style="--d:.1s; max-width:30ch; text-align:right;">Full-service, but never bloated. We take projects end-to-end.</p>
+    </div>
+    <div class="svc-list">
+      <div class="svc-row reveal">
+        <span class="svc-num">01</span>
+        <span class="svc-name">Web Design</span>
+        <span class="svc-desc">Distinctive, on-brand interfaces designed to convert — not just to look good.</span>
+      </div>
+      <div class="svc-row reveal">
+        <span class="svc-num">02</span>
+        <span class="svc-name">Development</span>
+        <span class="svc-desc">Hand-built in Webflow, Next.js or Shopify. Fast, accessible, easy to edit.</span>
+      </div>
+      <div class="svc-row reveal">
+        <span class="svc-num">03</span>
+        <span class="svc-name">Brand &amp; Identity</span>
+        <span class="svc-desc">Logos, type systems and visual languages that carry across every touchpoint.</span>
+      </div>
+      <div class="svc-row reveal">
+        <span class="svc-num">04</span>
+        <span class="svc-name">E-commerce</span>
+        <span class="svc-desc">Storefronts engineered for browsing, checkout and repeat purchase.</span>
+      </div>
+      <div class="svc-row reveal">
+        <span class="svc-num">05</span>
+        <span class="svc-name">SEO &amp; Performance</span>
+        <span class="svc-desc">Technical SEO, Core Web Vitals and analytics wired in from day one.</span>
+      </div>
+      <div class="svc-row reveal">
+        <span class="svc-num">06</span>
+        <span class="svc-name">Care &amp; Growth</span>
+        <span class="svc-desc">Ongoing iteration, maintenance and experiments after you launch.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROCESS ============ -->
+  <section class="section wrap" id="process">
+    <div class="section-head">
+      <h2 class="reveal">How we<br /><span class="serif">work</span></h2>
+      <span class="count reveal" style="--d:.1s">A clear, four-step path</span>
+    </div>
+    <div class="process">
+      <div class="proc-step reveal" data-step="01">
+        <span class="pk">01 / Discover</span>
+        <h4>Understand</h4>
+        <p>Goals, audience and competitors. We define what success looks like before touching pixels.</p>
+      </div>
+      <div class="proc-step reveal" data-step="02" style="--d:.08s">
+        <span class="pk">02 / Design</span>
+        <h4>Shape</h4>
+        <p>Wireframes to hi-fi design in fast loops, so you see direction early and often.</p>
+      </div>
+      <div class="proc-step reveal" data-step="03" style="--d:.16s">
+        <span class="pk">03 / Build</span>
+        <h4>Make</h4>
+        <p>Pixel-true, responsive, accessible builds with a CMS your team can run themselves.</p>
+      </div>
+      <div class="proc-step reveal" data-step="04" style="--d:.24s">
+        <span class="pk">04 / Launch</span>
+        <h4>Grow</h4>
+        <p>We launch, measure and keep improving — the site gets better after it's live.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STATS ============ -->
+  <section class="section wrap">
+    <div class="stats">
+      <div class="stat reveal">
+        <div class="num">120<span class="u">+</span></div>
+        <div class="lab">Websites designed &amp; shipped since 2017.</div>
+      </div>
+      <div class="stat reveal" style="--d:.1s">
+        <div class="num">2.4<span class="u">×</span></div>
+        <div class="lab">Average lift in conversion after relaunch.</div>
+      </div>
+      <div class="stat reveal" style="--d:.2s">
+        <div class="num">98<span class="u">/100</span></div>
+        <div class="lab">Median Lighthouse performance score.</div>
+      </div>
+      <div class="stat reveal" style="--d:.3s">
+        <div class="num">9<span class="u">yrs</span></div>
+        <div class="lab">Building for founders, teams and agencies.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TESTIMONIALS ============ -->
+  <section class="section wrap" id="clients">
+    <div class="section-head">
+      <h2 class="reveal">Kind<br /><span class="serif">words</span></h2>
+      <span class="count reveal" style="--d:.1s">From people we've built for</span>
+    </div>
+    <div class="quotes">
+      <div class="quote-card reveal">
+        <blockquote>"They rebuilt our site in six weeks and our demo requests <em class="serif">nearly doubled</em>. Easily the smoothest project we've run."</blockquote>
+        <div class="quote-by">
+          <span class="avatar">DR</span>
+          <span class="who"><b>Dana Reyes</b><span>VP Marketing, Ledgerly</span></span>
+        </div>
+      </div>
+      <div class="quote-card reveal" style="--d:.1s">
+        <blockquote>"Orionect just <em class="serif">gets it</em>. The design feels like us, and we can finally update the thing ourselves without breaking it."</blockquote>
+        <div class="quote-by">
+          <span class="avatar">MK</span>
+          <span class="who"><b>Marcus Kane</b><span>Founder, Northwind Coffee</span></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="marquee marquee--accent logos" aria-hidden="true">
+      <div class="marquee__track" style="--mq-dur:38s">
+        <span>NORTHWIND</span><span>ATLAS</span><span>MAISON VERDE</span><span>PULSE</span><span>LEDGERLY</span><span>BLOOM &amp; CO</span>
+      </div>
+      <div class="marquee__track" style="--mq-dur:38s" aria-hidden="true">
+        <span>NORTHWIND</span><span>ATLAS</span><span>MAISON VERDE</span><span>PULSE</span><span>LEDGERLY</span><span>BLOOM &amp; CO</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ APPROACH (dark) ============ -->
+  <section class="dark-section" id="approach">
+    <div class="wrap">
+      <p class="eyebrow reveal" style="color:var(--on-dark-soft)">Our approach</p>
+      <p class="approach-quote reveal" style="--d:.1s; margin-top:28px;">
+        Great websites aren't decorated — they're <em class="serif">engineered</em> around a single business goal.
+      </p>
+      <div class="approach-grid">
+        <div class="col reveal" style="--d:.1s">
+          <span class="k">— Senior, small</span>
+          <h4>No hand-offs</h4>
+          <p>You work directly with the people doing the work. No account managers, no telephone game.</p>
+        </div>
+        <div class="col reveal" style="--d:.2s">
+          <span class="k">— Outcome-led</span>
+          <h4>Designed to perform</h4>
+          <p>Every page starts from a metric: sign-ups, sales, bookings. Aesthetics serve the number.</p>
+        </div>
+        <div class="col reveal" style="--d:.3s">
+          <span class="k">— Built to last</span>
+          <h4>Yours to own</h4>
+          <p>Clean, documented builds you can actually maintain — no lock-in, no mystery code.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA ============ -->
+  <section class="cta wrap" id="contact">
+    <p class="eyebrow reveal">Let's talk</p>
+    <h2 class="reveal" style="--d:.05s">Got a project?<br /><em class="serif">Let's build it.</em></h2>
+    <p class="sub reveal" style="--d:.15s">
+      Tell us where you want your business to be. We'll tell you how a website gets you there —
+      usually within a day.
+    </p>
+    <div class="cta-actions reveal" style="--d:.25s">
+      <a class="btn lg" href="mailto:hello@orionect.studio"><span class="dot"></span>hello@orionect.studio</a>
+      <a class="btn ghost lg" href="#top">Book a call</a>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a class="brand" href="#top"><span class="mark"></span>Orionect</a>
+        <p>A web design studio building websites for businesses that mean business.</p>
+      </div>
+      <div class="fcol">
+        <h5>Studio</h5>
+        <ul>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#approach">Approach</a></li>
+          <li><a href="#process">Process</a></li>
+        </ul>
+      </div>
+      <div class="fcol">
+        <h5>Connect</h5>
+        <ul>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">LinkedIn</a></li>
+          <li><a href="#">Dribbble</a></li>
+          <li><a href="#">Read.cv</a></li>
+        </ul>
+      </div>
+      <div class="fcol">
+        <h5>Say hello</h5>
+        <ul>
+          <li><a href="mailto:hello@orionect.studio">hello@orionect.studio</a></li>
+          <li><a href="#contact">Start a project</a></li>
+          <li><a href="#">+1 (555) 019-2837</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bot">
+      <span>© 2026 Orionect Studio. All rights reserved.</span>
+      <span>Made with intent — remote, worldwide.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Tweaks island -->
+<div id="tweaks-root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="assets/main.js"></script>
+<script src="assets/constellation.js"></script>
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+<script type="text/babel" src="assets/tweaks-app.jsx"></script>
+</body>
+</html>
