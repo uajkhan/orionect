@@ -183,4 +183,43 @@
     runParallax(); // position on load
   }
 
+  /* ================================================================
+     COUNTUP — animate stat numbers when scrolled into view
+  ================================================================ */
+  if (typeof CountUp !== 'undefined') {
+    var countIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        countIO.unobserve(en.target);
+        var numEl = en.target.querySelector('.num');
+        if (!numEl) return;
+        var uSpan = numEl.querySelector('.u');
+        var suffix = uSpan ? uSpan.textContent : '';
+        var numText = numEl.childNodes[0].textContent.trim();
+        var endVal = parseFloat(numText);
+        var decimals = numText.indexOf('.') !== -1 ? numText.length - numText.indexOf('.') - 1 : 0;
+        var target = document.createElement('span');
+        numEl.textContent = '';
+        numEl.appendChild(target);
+        if (uSpan) { uSpan.textContent = suffix; numEl.appendChild(uSpan); }
+        var cu = new CountUp(target, endVal, { decimalPlaces: decimals, duration: 2.5 });
+        if (!cu.error) cu.start();
+      });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('.stat').forEach(function (el) { countIO.observe(el); });
+  }
+
+  /* ================================================================
+     VANILLA TILT — 3D perspective tilt on work cards (pointer devices only)
+  ================================================================ */
+  if (typeof VanillaTilt !== 'undefined' && window.matchMedia('(hover: hover)').matches) {
+    VanillaTilt.init(document.querySelectorAll('.work-card'), {
+      max: 8,
+      speed: 400,
+      glare: true,
+      'max-glare': 0.12,
+      scale: 1.02,
+    });
+  }
+
 })();
