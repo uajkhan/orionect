@@ -186,7 +186,10 @@
   /* ================================================================
      COUNTUP — animate stat numbers when scrolled into view
   ================================================================ */
-  if (typeof CountUp !== 'undefined') {
+  var CountUpClass = (typeof CountUp !== 'undefined') ? CountUp
+    : (typeof countUp !== 'undefined' && countUp.CountUp) ? countUp.CountUp : null;
+
+  if (CountUpClass) {
     var countIO = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
         if (!en.isIntersecting) return;
@@ -202,7 +205,7 @@
         numEl.textContent = '';
         numEl.appendChild(target);
         if (uSpan) { uSpan.textContent = suffix; numEl.appendChild(uSpan); }
-        var cu = new CountUp(target, endVal, { decimalPlaces: decimals, duration: 2.5 });
+        var cu = new CountUpClass(target, endVal, { decimalPlaces: decimals, duration: 2.5 });
         if (!cu.error) cu.start();
       });
     }, { threshold: 0.5 });
