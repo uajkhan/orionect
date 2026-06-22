@@ -5,6 +5,12 @@
   var root = document.documentElement;
 
   /* ================================================================
+     LENIS — smooth scroll
+  ================================================================ */
+  var lenis = new Lenis({ lerp: 0.10, smoothWheel: true });
+  (function lenisRaf(t) { lenis.raf(t); requestAnimationFrame(lenisRaf); })(0);
+
+  /* ================================================================
      HEADER — scrolled state
   ================================================================ */
   var header = document.getElementById('header');
