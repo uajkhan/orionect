@@ -8,7 +8,14 @@
      LENIS — smooth scroll
   ================================================================ */
   var lenis = new Lenis({ lerp: 0.10, smoothWheel: true });
-  (function lenisRaf(t) { lenis.raf(t); requestAnimationFrame(lenisRaf); })(0);
+  if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+    gsap.registerPlugin(ScrollTrigger);
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add(function (time) { lenis.raf(time * 1000); });
+    gsap.ticker.lagSmoothing(0);
+  } else {
+    (function lenisRaf(t) { lenis.raf(t); requestAnimationFrame(lenisRaf); })(0);
+  }
 
   /* ================================================================
      HEADER — scrolled state
@@ -88,8 +95,7 @@
       var target = document.querySelector(id);
       if (!target) return;
       e.preventDefault();
-      var y = target.getBoundingClientRect().top + window.scrollY - 76;
-      window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+      lenis.scrollTo(target, { offset: -76 });
     });
   });
 
@@ -117,70 +123,58 @@
   });
 
   /* ================================================================
-     PARALLAX — rAF-gated, uses CSS `translate` property
-     (separate from `transform` → no conflict with hover/reveal states)
-
-     depth: fraction of viewport-center-offset to apply as Y translate.
-     Small values (0.03–0.18) give a subtle layered-depth feel.
+     PARALLAX — ScrollTrigger scrub, synced to Lenis
   ================================================================ */
   var motionOk = window.matchMedia('(prefers-reduced-motion: no-preference)').matches;
 
-  if (motionOk) {
+  if (motionOk && typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+    // scrub: higher = more lag/smoothness behind scroll
     var PX_CONFIG = [
-      /* hero bg rings — reference layers */
-      { sel: '.hero-bg-ring--1', depth: 0.028 },
-      { sel: '.hero-bg-ring--2', depth: 0.065 },
-      /* hero content — stacked depths */
-      { sel: '.hero-status',     depth: 0.042 },
-      { sel: '.hero h1',         depth: 0.088 },
-      { sel: '.hero-foot',       depth: 0.065 },
-      { sel: '.hero-badge',      depth: 0.210 },
-      /* card inner — glyph slides in clipped frame */
-      { sel: '.ph-glyph',        depth: 0.320 },
-      { sel: '.ph-art',          depth: 0.140 },
-      /* sections */
-      { sel: '.section-head h2', depth: 0.065 },
-      { sel: '.approach-quote',  depth: 0.090 },
-      { sel: '.cta h2',          depth: 0.065 },
-      { sel: '.stat .num',       depth: 0.075 },
-      { sel: '.proc-step h4',    depth: 0.055 },
+      { sel: '.hero-bg-ring--1', y: 60,  scrub: 2.5 },
+      { sel: '.hero-bg-ring--2', y: 120, scrub: 2.5 },
+      { sel: '.hero-status',     y: 40,  scrub: 1.8 },
+      { sel: '.hero h1',         y: 90,  scrub: 1.8 },
+      { sel: '.hero-foot',       y: 60,  scrub: 1.8 },
+      { sel: '.hero-badge',      y: 240, scrub: 1.0 },
+      { sel: '.ph-glyph',        y: 130, scrub: 1.2 },
+      { sel: '.ph-art',          y: 70,  scrub: 1.5 },
+      { sel: '.section-head h2', y: 45,  scrub: 2.5 },
+      { sel: '.approach-quote',  y: 90,  scrub: 1.8 },
+      { sel: '.cta h2',          y: 50,  scrub: 2.5 },
+      { sel: '.stat .num',       y: 40,  scrub: 1.8 },
+      { sel: '.proc-step h4',    y: 35,  scrub: 2.5 },
     ];
-
-    var pxEls  = [];
-    var pxTick = false;
-    var vh     = window.innerHeight;
 
     PX_CONFIG.forEach(function (cfg) {
       document.querySelectorAll(cfg.sel).forEach(function (el) {
-        el.classList.add('px-target'); // enables will-change in CSS
-        pxEls.push({ el: el, depth: cfg.depth });
+        el.classList.add('px-target');
+        gsap.fromTo(el,
+          { y: cfg.y * 0.5 },
+          {
+            y: -cfg.y * 0.5,
+            ease: 'none',
+            scrollTrigger: {
+              trigger: el,
+              start: 'top bottom',
+              end: 'bottom top',
+              scrub: cfg.scrub,
+            },
+          }
+        );
       });
     });
 
-    function runParallax() {
-      pxTick = false;
-      if (root.getAttribute('data-motion') === 'off') {
-        // clear any lingering translate when motion is killed
-        pxEls.forEach(function (t) { t.el.style.translate = 'none'; });
-        return;
-      }
-      pxEls.forEach(function (t) {
-        var r   = t.el.getBoundingClientRect();
-        var mid = r.top + r.height * 0.5 - vh * 0.5; // +ve = below center, –ve = above
-        // elements below center pushed slightly up (negative Y); above → slightly down
-        // result: everything drifts toward center as it scrolls by → depth illusion
-        var y = (mid * t.depth * -0.58).toFixed(2);
-        t.el.style.translate = '0px ' + y + 'px';
-      });
-    }
-
-    window.addEventListener('scroll', function () {
-      if (!pxTick) { requestAnimationFrame(runParallax); pxTick = true; }
-    }, { passive: true });
-
-    window.addEventListener('resize', function () { vh = window.innerHeight; });
-
-    runParallax(); // position on load
+    // Hero badge: also rotates as you scroll past the hero
+    gsap.to('.hero-badge', {
+      rotation: 25,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '.hero',
+        start: 'top top',
+        end: 'bottom top',
+        scrub: 1,
+      },
+    });
   }
 
   /* ================================================================
